@@ -14,7 +14,7 @@ class Migration(migrations.Migration):
             name='MFASupport',
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
-                ('documentation', models.URLField()),
+                ('documentation', models.URLField(null=True, blank=True)),
                 ('sms', models.BooleanField(default=False)),
                 ('phone_call', models.BooleanField(default=False)),
                 ('email', models.BooleanField(default=False)),
@@ -27,14 +27,10 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('name', models.CharField(max_length=256)),
-                ('website', models.URLField()),
-                ('logo', models.URLField()),
-                ('twitter_handle', models.CharField(max_length=256)),
+                ('website', models.URLField(null=True, blank=True)),
+                ('logo', models.URLField(null=True, blank=True)),
+                ('twitter_handle', models.CharField(default=b'', max_length=256)),
+                ('mfa_support', models.OneToOneField(null=True, blank=True, to='api.MFASupport')),
             ],
-        ),
-        migrations.AddField(
-            model_name='mfasupport',
-            name='organization',
-            field=models.OneToOneField(to='api.Organization'),
         ),
     ]

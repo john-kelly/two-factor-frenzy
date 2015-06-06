@@ -16,5 +16,7 @@ class OrganizationSerializer(serializers.ModelSerializer):
 
     """Serializer for the Organization."""
 
+    mfa_support = MFASupportSerializer()
+
     class Meta:
         model = Organization
