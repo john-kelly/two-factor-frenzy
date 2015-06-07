@@ -89,15 +89,8 @@ def run():
                         twitter = ''
 
                     organization = Organization(
-                        name=name, website=url,
-                        logo=img, twitter_handle=twitter,
-                        mfa_support=mfa
+                        name=name, category=tag,
+                        website=url, logo=img,
+                        twitter_handle=twitter, mfa_support=mfa
                     )
                     organization.save()
-
-
-
-
-# convert that website yaml to json
-    # pass the filename as a tag
-    # take non-existent fields into account: if not present, set to False
