@@ -9,6 +9,10 @@ class MFASupport(models.Model):
     hardware_token = models.BooleanField(default=False)
     software_implementation = models.BooleanField(default=False)
 
+class EncryptionSupport(models.Model):
+    """ Model for various encrytpion methods support."""
+    sha_status = models.BooleanField(default=False)
+
 class Organization(models.Model):
     """ Model for Organization. """
     name = models.CharField(max_length=256)
@@ -17,3 +21,6 @@ class Organization(models.Model):
     logo = models.URLField(blank=True, null=True)
     twitter_handle = models.CharField(max_length=256, default='')
     mfa_support = models.OneToOneField(MFASupport, null=True, blank=True)
+    encryption_support = models.OneToOneField(
+        EncryptionSupport, null=True, blank=True
+    )
