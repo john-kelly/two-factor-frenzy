@@ -1,5 +1,6 @@
 from django.db import models
 
+
 class MFASupport(models.Model):
     """ Model for Multi-factor Authentication support."""
     documentation = models.URLField(blank=True, null=True)
@@ -29,6 +30,7 @@ class Organization(models.Model):
     def calculate_safety(self):
         return 1
 
+    # TODO generalize this.
     @staticmethod
     def top_3_of_category(category):
         """ Returns top 5 safest Organizations based on their calculated safety
@@ -36,4 +38,5 @@ class Organization(models.Model):
         Returns list because can not filter by model method."""
 
         orgs_of_category = Organization.objects.filter(category=category)
-        return list(orgs_of_category).sort(key=lambda org:org.calculate_safety())[-3:]
+
+        return sorted(orgs_of_category, key=lambda org:org.calculate_safety())[-3:]
