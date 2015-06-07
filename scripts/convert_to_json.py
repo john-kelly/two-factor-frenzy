@@ -17,7 +17,7 @@ def run():
     # get each file in the directory
     for fn in os.listdir('_data/'):
         # if it is a yaml file
-        if fn.endswith('.yml'):
+        if fn.endswith('.yml') and fn != "main.yml" and fn != "providers.yml":
             # get the filename to serve as the organization tag
             filename = os.path.splitext(fn)
             tag = filename[0]
