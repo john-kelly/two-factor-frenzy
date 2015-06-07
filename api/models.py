@@ -12,6 +12,7 @@ class MFASupport(models.Model):
 class Organization(models.Model):
     """ Model for Organization. """
     name = models.CharField(max_length=256)
+    category = models.CharField(max_length=256, default='')
     website = models.URLField(blank=True, null=True)
     logo = models.URLField(blank=True, null=True)
     twitter_handle = models.CharField(max_length=256, default='')
