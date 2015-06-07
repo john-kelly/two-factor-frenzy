@@ -3,7 +3,7 @@
 Usage
 -----
 
-./manage.py runscript convert_to_json
+./manage.py runscript get_sha_status
 
 """
 
@@ -41,7 +41,7 @@ def run():
             print
 
         # correct the site logo
-        logo =  org.logo
+        logo = org.logo
         fixed_logo = logo.replace('https://twofactorauth.org/img', 'https://twofactorauth.org/img/')
         org.logo = fixed_logo
         org.save()
