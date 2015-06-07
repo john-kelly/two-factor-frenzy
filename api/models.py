@@ -24,3 +24,16 @@ class Organization(models.Model):
     encryption_support = models.OneToOneField(
         EncryptionSupport, null=True, blank=True
     )
+
+    # TODO
+    def calculate_safety(self):
+        return 1
+
+    @staticmethod
+    def top_3_of_category(category):
+        """ Returns top 5 safest Organizations based on their calculated safety
+
+        Returns list because can not filter by model method."""
+
+        orgs_of_category = Organization.objects.filter(category=category)
+        return list(orgs_of_category).sort(key=lambda org:org.calculate_safety())[-3:]
