@@ -1,0 +1,110 @@
+/*
+ * MORE INFO PAGE
+ */
+
+body {
+    background-color: #B5E2BB;
+    font-family: 'Open Sans', sans-serif;
+}
+
+header {
+    text-align: center;
+    font-size: 150px;
+    font-weight: bolder;
+    color: #FFFFFF;
+}
+
+.wrapper {
+    width: 85%;
+    margin: 0 auto;
+    font-size: 22px;
+    color: #0C5215;
+}
+
+small {
+    font-weight: bold;
+    font-style: italic;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+/*
+ * index page
+ */
+
+
+
+
+/*
+ * add site page
+ */
+
+#added {
+    text-align: center;
+}
+
+
+/*
+ * buttons
+ */
+
+#btn-container {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.btn {
+    display: inline-block;
+    text-align: center;
+    font-size: 14px;
+    vertical-align: middle;
+    line-height: 40px;
+
+    outline: none;
+
+    width: 48%;
+    height: 40px;
+    margin-bottom: 10px;
+
+    cursor: pointer;
+
+    border: 1px solid;
+    border-color: #788E77;
+    border-radius: 2px;
+    color: #ffffff;
+}
+
+.btn-green {
+    background-color: #66A366;
+}
+
+.btn-green:hover {
+    background-color: #B5E2BB;
+}
+
+.btn-red {
+    background-color: #B14345;
+}
+
+.btn-red:hover {
+    background-color: #D36A66;
+}
+
+.btn-blue {
+    background-color: #789EC1;
+}
+
+.btn-blue:hover {
+    background-color: #91B8D8;
+}
+
+.wide{
+    width: 98%;
+}
+
+.btn:hover {
+    color: #333333;
+}

@@ -11,5 +11,7 @@ router.register(r'organization', views.OrganizationViewSet)
 
 urlpatterns = patterns(
     '',
-    url(r'^', include(router.urls))
+    url(r'^$', views.index, name='index'),
+    url(r'^added/', views.added, name='added'),
+    url(r'^api/', include(router.urls))
 )
