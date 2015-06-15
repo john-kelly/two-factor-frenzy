@@ -1,4 +1,5 @@
 from django.http import HttpResponse
+from django.shortcuts import render
 
 from rest_framework import filters
 from rest_framework import viewsets
@@ -38,3 +39,29 @@ class OrganizationViewSet(viewsets.ReadOnlyModelViewSet):
         org_serializer = self.get_serializer(top_3, many=True)
 
         return Response(org_serializer.data)
+
+
+def index(request):
+    """View the index page.
+
+    Returns HttpResponse
+
+    """
+
+    return render(request, "index.html")
+
+
+def added(request):
+    """View the page after submitting a new site.
+
+    A new site can be submitted from the form here or from the extension.
+
+    Returns HttpResponse
+
+    """
+
+    add_site = 'example.com/your-website'
+
+    return render(request, "added.html", {
+        'add_site': add_site
+    })

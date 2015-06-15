@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Is It Safe?</title>
+
+        {% load staticfiles %}
+
+        <link href="{% static 'img/favicon.ico' %}" type="image/x-icon" rel="icon">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+        <!-- Libraries. -->
+        <!-- <script src="/js/jquery/jquery.min.js"></script> -->
+
+    </head>
+
+    <body>
+        <header>
+            <i>STAY SAFE ONLINE</i>
+        </header>
+
+        <div class="wrapper">
+
+        <div id="added">
+            <h2>Thank you for helping us keep the web safe!</h2>
+            <p>
+                We've added <a href="{{add_site}}" targe="_blank">{{add_site}}</a> to our growing list of sites.
+            </p>
+            <p>
+                We should have more information about them soon.
+            </p>
+            <a href="/" class="btn btn-green">
+                back to homepage
+            </a>
+        </div>
+
+        </div>
+
+    </body>
+
+
+</html>
