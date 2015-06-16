@@ -1,5 +1,6 @@
 from django.http import HttpResponse
 from django.shortcuts import render
+from django.views.decorators.csrf import csrf_exempt
 
 from rest_framework import filters
 from rest_framework import viewsets
@@ -8,6 +9,8 @@ from rest_framework.response import Response
 
 from serializers import OrganizationSerializer
 from models import Organization
+
+import json
 
 
 class OrganizationViewSet(viewsets.ReadOnlyModelViewSet):
@@ -60,8 +63,28 @@ def added(request):
 
     """
 
-    add_site = 'example.com/your-website'
+    added_site = 'example.com/your-website'
 
     return render(request, "added.html", {
-        'add_site': add_site
+        'added_site': added_site
     })
+
+
+@csrf_exempt
+def add_site(request):
+    """Handle incoming POST requests to add new sites to the list.
+
+    For sites submitted via the extension.
+
+    Returns JSON response.
+
+    """
+
+    add_site = request.POST['site']
+
+    data = {
+        "status": "ok",
+        "site": add_site,
+    }
+
+    return HttpResponse(json.dumps(data), content_type = "application/json")
