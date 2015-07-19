@@ -64,11 +64,9 @@ def site_requests(request):
 
     """
 
-    # added_site = 'example.com/your-website'
     site_requests = SiteRequest.objects.all()
 
     return render(request, "site_requests.html", {
-        # 'added_site': added_site
         'site_requests': site_requests
     })
 
@@ -84,9 +82,6 @@ def add_site(request):
     """
 
     add_site = request.POST['site']
-    print "\nnew site request:"
-    print add_site
-    print
 
     site_request = SiteRequest(website=add_site)
     site_request.save()

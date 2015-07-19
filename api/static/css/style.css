@@ -1,5 +1,5 @@
 /*
- * MORE INFO PAGE
+ * INDEX, "more info" page
  */
 
 body {
@@ -32,14 +32,7 @@ a {
 
 
 /*
- * index page
- */
-
-
-
-
-/*
- * site requests page and table of site requests
+ * SITE REQUESTS PAGE, and table of site requests
  */
 
 #site-request-page {
@@ -48,7 +41,7 @@ a {
 }
 
 #site-requests {
-    margin: 2% 0;
+    margin: 5% 0;
     width: 100%;
     border-collapse: collapse;
 }
@@ -91,7 +84,6 @@ tr:nth-child(odd) {background: #D1EDD4}
     width: 48%;
     text-align: left;
 }
-
 
 
 /*
