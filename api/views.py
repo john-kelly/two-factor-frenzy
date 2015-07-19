@@ -9,6 +9,7 @@ from rest_framework.response import Response
 
 from serializers import OrganizationSerializer
 from models import Organization
+from models import SiteRequest
 
 import json
 
@@ -54,7 +55,7 @@ def index(request):
     return render(request, "index.html")
 
 
-def added(request):
+def site_requests(request):
     """View the page after submitting a new site.
 
     A new site can be submitted from the form here or from the extension.
@@ -63,10 +64,12 @@ def added(request):
 
     """
 
-    added_site = 'example.com/your-website'
+    # added_site = 'example.com/your-website'
+    site_requests = SiteRequest.objects.all()
 
-    return render(request, "added.html", {
-        'added_site': added_site
+    return render(request, "site_requests.html", {
+        # 'added_site': added_site
+        'site_requests': site_requests
     })
 
 
@@ -74,13 +77,19 @@ def added(request):
 def add_site(request):
     """Handle incoming POST requests to add new sites to the list.
 
-    For sites submitted via the extension.
+    Creates a new SiteRequest object for sites submitted via the extension.
 
-    Returns JSON response.
+    Returns JSON response back to the extension.
 
     """
 
     add_site = request.POST['site']
+    print "\nnew site request:"
+    print add_site
+    print
+
+    site_request = SiteRequest(website=add_site)
+    site_request.save()
 
     data = {
         "status": "ok",

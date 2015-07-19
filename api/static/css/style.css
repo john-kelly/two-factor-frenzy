@@ -39,12 +39,59 @@ a {
 
 
 /*
- * add site page
+ * site requests page and table of site requests
  */
 
-#added {
+#site-request-page {
     text-align: center;
+    margin: 2% auto;
 }
+
+#site-requests {
+    margin: 2% 0;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#site-requests td, #site-requests th {
+    font-size: .9em;
+    border: 1px solid #66A366;
+    padding: 7px;
+
+    max-width: 100px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+#site-requests th {
+    font-size: 1.2em;
+    text-align: center;
+    padding: 5px 0;
+    background-color: #0C5215;
+    color: #fff;
+}
+
+tr:nth-child(odd) {background: #D1EDD4}
+
+.status {
+    width: 10%;
+}
+
+.site {
+    width: 30%;
+    text-align: left;
+}
+
+.date {
+    width: 12%;
+}
+
+.notes {
+    width: 48%;
+    text-align: left;
+}
+
 
 
 /*
