@@ -45,4 +45,21 @@ class Organization(models.Model):
 
 class SiteRequest(models.Model):
     """ Model for requests that users make to add new sites to the database."""
+
+    # status of the site request
+    RECEIVED = 0
+    IN_PROGRESS = 1
+    COMPLETED = 2
+    REJECTED = -1
+
+    STATUS_CHOICES = (
+        (RECEIVED, 'Received'),
+        (IN_PROGRESS, 'In Progress'),
+        (COMPLETED, 'Completed'),
+        (REJECTED, 'Rejected')
+    )
+
     website = models.URLField(blank=True, null=True)
+    request_date = models.DateTimeField(auto_now_add=True)
+    status = models.IntegerField(choices=STATUS_CHOICES, default=RECEIVED)
+    notes = models.CharField(max_length=256, default='')
