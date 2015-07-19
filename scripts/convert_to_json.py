@@ -59,6 +59,7 @@ def run():
                     except:
                         software = ''
 
+                    # store all of their MFA information
                     mfa = MFASupport(
                         documentation=doc, sms=sms,
                         phone_call=phone, email=email,
@@ -67,27 +68,32 @@ def run():
                     )
                     mfa.save()
 
-                    # create each organization and apply its MFA status
+                    # organization's name
                     try:
                         name = org['name']
                     except:
                         name = ''
 
+                    # their site
                     try:
                         url = org['url']
                     except:
                         url = ''
 
+                    # organization's logo
                     try:
-                        img = 'https://twofactorauth.org/img' + tag + org['img']
+                        img = 'https://twofactorauth.org/img/' +
+                              tag + '/' + org['img']
                     except:
                         img = 'https://twofactorauth.org/img/logo.png'
 
+                    # twitter handle, if there is one
                     try:
                         twitter = org['twitter']
                     except:
                         twitter = ''
 
+                    # now save each organization with corresponding MFA status
                     organization = Organization(
                         name=name, category=tag,
                         website=url, logo=img,
