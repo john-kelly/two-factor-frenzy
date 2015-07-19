@@ -63,3 +63,7 @@ class SiteRequest(models.Model):
     request_date = models.DateTimeField(auto_now_add=True)
     status = models.IntegerField(choices=STATUS_CHOICES, default=RECEIVED)
     notes = models.CharField(max_length=256, default='')
+
+    def status_verbose(self):
+        """ Return readable text for the given field. """
+        return dict(SiteRequest.STATUS_CHOICES)[self.status]
