@@ -39,4 +39,10 @@ class Organization(models.Model):
 
         orgs_of_category = Organization.objects.filter(category=category)
 
-        return sorted(orgs_of_category, key=lambda org:org.calculate_safety())[-3:]
+        return sorted(
+            orgs_of_category, key=lambda org:org.calculate_safety()
+        )[-3:]
+
+class SiteRequest(models.Model):
+    """ Model for requests that users make to add new sites to the database."""
+    website = models.URLField(blank=True, null=True)
