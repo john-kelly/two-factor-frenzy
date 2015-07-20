@@ -1,6 +1,8 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
+from django.core.validators import URLValidator
+from django.core.exceptions import ValidationError
 
 from rest_framework import filters
 from rest_framework import viewsets
@@ -81,14 +83,30 @@ def add_site(request):
 
     """
 
-    add_site = request.POST['site']
+    add_site = request.POST.get('site', '')
 
-    site_request = SiteRequest(website=add_site)
-    site_request.save()
+    if not add_site:
+        data = {
+             'status': 'fail'
+         }
+    else:
+        # ensure that the URL is valid
+        validate = URLValidator()
+        try:
+            validate(add_site)
+        except ValidationError, e:
+            print "\nError adding site: %s" % add_site
+            print e
 
-    data = {
-        "status": "ok",
-        "site": add_site,
-    }
+        # if a request already exists for this site, get it.
+        # otherwise, create a new site request.
+        request, created = SiteRequest.objects.get_or_create(website=add_site)
+        request.num_requests += 1
+        request.save()
+
+        data = {
+            'status': 'ok',
+            'site': add_site,
+        }
 
     return HttpResponse(json.dumps(data), content_type = "application/json")
