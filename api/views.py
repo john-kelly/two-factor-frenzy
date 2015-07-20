@@ -66,7 +66,9 @@ def site_requests(request):
 
     """
 
-    site_requests = SiteRequest.objects.all()
+    site_requests = SiteRequest.objects.all().order_by(
+        '-status', '-num_requests'
+    )
 
     return render(request, "site_requests.html", {
         'site_requests': site_requests

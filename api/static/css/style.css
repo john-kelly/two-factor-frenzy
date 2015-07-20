@@ -15,7 +15,7 @@ header {
 }
 
 .wrapper {
-    width: 85%;
+    width: 90%;
     margin: 0 auto;
     font-size: 22px;
     color: #0C5215;
@@ -47,7 +47,7 @@ a {
 }
 
 #site-requests td, #site-requests th {
-    font-size: .9em;
+    font-size: .8em;
     border: 1px solid #66A366;
     padding: 7px;
 
@@ -58,7 +58,7 @@ a {
 }
 
 #site-requests th {
-    font-size: 1.2em;
+    font-size: 1em;
     text-align: center;
     padding: 5px 0;
     background-color: #0C5215;
@@ -72,17 +72,21 @@ tr:nth-child(odd) {background: #D1EDD4}
 }
 
 .site {
-    width: 30%;
+    width: 25%;
     text-align: left;
 }
 
 .date {
-    width: 12%;
+    width: 10%;
 }
 
 .notes {
-    width: 48%;
+    width: 45%;
     text-align: left;
+}
+
+.num-requests {
+    width: 10%;
 }
 
 
