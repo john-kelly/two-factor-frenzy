@@ -1,4 +1,6 @@
-"""Script to convert yaml info to json.
+"""Script to find SHA2 status for each site.
+
+Scrapes SHA2 checker to get the status.
 
 Usage
 -----
@@ -39,9 +41,3 @@ def run():
             print '* error getting sha status'
             print org.website
             print
-
-        # correct the site logo
-        logo = org.logo
-        fixed_logo = logo.replace('https://twofactorauth.org/img', 'https://twofactorauth.org/img/')
-        org.logo = fixed_logo
-        org.save()

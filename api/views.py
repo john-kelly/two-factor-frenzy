@@ -1,6 +1,8 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
+from django.core.validators import URLValidator
+from django.core.exceptions import ValidationError
 
 from rest_framework import filters
 from rest_framework import viewsets
@@ -9,6 +11,7 @@ from rest_framework.response import Response
 
 from serializers import OrganizationSerializer
 from models import Organization
+from models import SiteRequest
 
 import json
 
@@ -54,7 +57,7 @@ def index(request):
     return render(request, "index.html")
 
 
-def added(request):
+def site_requests(request):
     """View the page after submitting a new site.
 
     A new site can be submitted from the form here or from the extension.
@@ -63,10 +66,12 @@ def added(request):
 
     """
 
-    added_site = 'example.com/your-website'
+    site_requests = SiteRequest.objects.all().order_by(
+        '-status', '-num_requests'
+    )
 
-    return render(request, "added.html", {
-        'added_site': added_site
+    return render(request, "site_requests.html", {
+        'site_requests': site_requests
     })
 
 
@@ -74,17 +79,36 @@ def added(request):
 def add_site(request):
     """Handle incoming POST requests to add new sites to the list.
 
-    For sites submitted via the extension.
+    Creates a new SiteRequest object for sites submitted via the extension.
 
-    Returns JSON response.
+    Returns JSON response back to the extension.
 
     """
 
-    add_site = request.POST['site']
+    add_site = request.POST.get('site', '')
 
-    data = {
-        "status": "ok",
-        "site": add_site,
-    }
+    if not add_site:
+        data = {
+             'status': 'fail'
+         }
+    else:
+        # ensure that the URL is valid
+        validate = URLValidator()
+        try:
+            validate(add_site)
+        except ValidationError, e:
+            print "\nError adding site: %s" % add_site
+            print e
+
+        # if a request already exists for this site, get it.
+        # otherwise, create a new site request.
+        request, created = SiteRequest.objects.get_or_create(website=add_site)
+        request.num_requests += 1
+        request.save()
+
+        data = {
+            'status': 'ok',
+            'site': add_site,
+        }
 
     return HttpResponse(json.dumps(data), content_type = "application/json")

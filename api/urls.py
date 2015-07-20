@@ -13,6 +13,6 @@ urlpatterns = patterns(
     '',
     url(r'^$', views.index, name='index'),
     url(r'^add_site/', views.add_site, name='add_site'),
-    url(r'^added/', views.added, name='added'),
+    url(r'^site_requests/', views.site_requests, name='added'),
     url(r'^api/', include(router.urls))
 )

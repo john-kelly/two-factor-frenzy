@@ -19,7 +19,7 @@
         <div class="wrapper">
             <div id="site-request-page">
                 The following sites have been requested:
-<br/><br/><br/>
+
                 <table id="site-requests" align="center">
                     <tr>
                         <th>
@@ -27,6 +27,9 @@
                         </th>
                         <th>
                             Site
+                        </th>
+                        <th>
+                            Requests
                         </th>
                         <th>
                             Date
@@ -39,12 +42,15 @@
                     {% for site in site_requests %}
                     <tr>
                         <td class="status">
-                            {{site.status}}
+                            {{site.status_verbose}}
                         </td>
                         <td class="site">
                             <a href="{{site.website}}" target="_blank">
                                 {{site.website}}
                             </a>
+                        </td>
+                        <td class="num-requests">
+                            {{site.num_requests}}
                         </td>
                         <td class="date">
                             {{site.request_date|date:"d M Y"}}
@@ -58,7 +64,6 @@
 
                 </table>
 
-                <br/><br/><br/>
                 <a href="/" class="btn btn-green">
                     back to homepage
                 </a>

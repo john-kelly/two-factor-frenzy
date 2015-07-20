@@ -1,5 +1,5 @@
 /*
- * MORE INFO PAGE
+ * INDEX, "more info" page
  */
 
 body {
@@ -15,7 +15,7 @@ header {
 }
 
 .wrapper {
-    width: 85%;
+    width: 90%;
     margin: 0 auto;
     font-size: 22px;
     color: #0C5215;
@@ -32,18 +32,61 @@ a {
 
 
 /*
- * index page
+ * SITE REQUESTS PAGE, and table of site requests
  */
 
-
-
-
-/*
- * add site page
- */
-
-#added {
+#site-request-page {
     text-align: center;
+    margin: 2% auto;
+}
+
+#site-requests {
+    margin: 5% 0;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#site-requests td, #site-requests th {
+    font-size: .8em;
+    border: 1px solid #66A366;
+    padding: 7px;
+
+    max-width: 100px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+#site-requests th {
+    font-size: 1em;
+    text-align: center;
+    padding: 5px 0;
+    background-color: #0C5215;
+    color: #fff;
+}
+
+tr:nth-child(odd) {background: #D1EDD4}
+
+.status {
+    width: 10%;
+}
+
+.site {
+    width: 25%;
+    text-align: left;
+}
+
+.date {
+    width: 10%;
+}
+
+.notes {
+    width: 45%;
+    text-align: left;
+}
+
+.num-requests {
+    width: 10%;
 }
 
 
