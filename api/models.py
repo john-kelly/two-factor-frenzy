@@ -59,7 +59,7 @@ class SiteRequest(models.Model):
         (REJECTED, 'Rejected')
     )
 
-    website = models.URLField(blank=True, null=True)
+    website = models.URLField(unique=True)
     request_date = models.DateTimeField(auto_now_add=True)
     status = models.IntegerField(choices=STATUS_CHOICES, default=RECEIVED)
     notes = models.CharField(max_length=256, default='')
