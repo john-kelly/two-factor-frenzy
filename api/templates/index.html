@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Is It Safe?</title>
+        <title>Check This Site</title>
 
         {% load staticfiles %}
 
         <link href="{% static 'img/favicon.ico' %}" type="image/x-icon" rel="icon">
         <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
         <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
-        <!-- Libraries. -->
-        <!-- <script src="/js/jquery/jquery.min.js"></script> -->
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script type="text/javascript" src="{% static 'js/script.js' %}"></script>
 
     </head>
 
@@ -20,31 +21,48 @@
 
         <div class="wrapper">
 
-        <div class="mfa">
-            <h2>What is Multi-factor Authentication?</h2>
-            <p>
-                Multi-factor Authentication (MFA) is a way to keep your personal information secure online. By verifying that you are actually you, websites that use MFA help cut down on identity theft and loss of personal data.
-            </p>
-            <p>
-                The first step in keeping your information secure is to use a strong password. Once you've successfully entered your username and password into a website, multi-factor authentication serves as a next step in keeping your identity secure. One MFA method for verifying your identity involves texting you a verification code. That way, even if a hacker knows your password, they won't be able to access your data without your phone.
-            </p>
+            <div id="left-panel">
+                <h3>
+                    MULTI-FACTOR AUTHENTICATION
+                </h3>
+                <p>
+                    Multi-factor Authentication (MFA) is a way to keep your personal information secure online. By verifying that you are actually you, websites that use MFA help cut down on identity theft and loss of personal data.
+                </p>
 
-            <h2>Where should you use Multi-factor Authentication?</h2>
-            <p>
-                Anywhere you'd like to keep your information safe! For example:
-            </p>
-            <ul>
-                <li>
-                    Online banking
-                </li>
-                <li>
-                    Email
-                </li>
-                <li>
-                    Filing taxes
-                </li>
-            </ul>
-        </div>
+                <h3>
+                    WHY AUTHENTICATION?
+                </h3>
+
+                <p>
+                    If a website does not offer MFA, all an identity thief needs to do to gain access to your account is enter your username and password. MFA provides a next step by checking that you -- and and only you -- are trying to access your information.
+
+                    For example, a site may send a text message directly to your phone. This message contains a short number that you then enter into the website as part of the login process. Because the identity thief doesn't have your phone, they can't access your account.
+                </p>
+            </div>
+
+            <div id="right-panel">
+                <div class="right-content">
+                    RESOURCES
+                </div>
+                <ul>
+                    <li>
+                        <a href="https://chrome.google.com/webstore/detail/is-it-safe/jmppobhogabhaifcikcjkilmmclfhdjd" target="_blank">
+                            'Is It Safe' browser extension
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.twofactorauth.org" target="_blank">
+                            Two Factor Auth
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://www.nist.gov/nstic/" target="_blank">
+                            National Strategy for Trusted Identities in Cyberspace
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
 
         </div>
 
