@@ -82,8 +82,7 @@ def run():
 
                     # organization's logo
                     try:
-                        img = 'https://twofactorauth.org/img/' +
-                              tag + '/' + org['img']
+                        img = 'https://twofactorauth.org/img/' + tag + '/' + org['img']
                     except:
                         img = 'https://twofactorauth.org/img/logo.png'
 
