@@ -3,24 +3,24 @@
  */
 
 body {
-    /*background-color: #B5E2BB;*/
+    background-color: #B5E2BB;
     background-image: url("../img/diagonal.png");
     font-family: 'Open Sans', sans-serif;
     margin: 0;
     width: 100vw;
     height: 100vh;
+    overflow-x: hidden;
+
+    font-size: 1.5vw;
+    color: #0C5215;
 }
 
 header {
     text-align: center;
-    font-size: 10.7vw;
+    margin-left: -2vw;
+    font-size: 12vw;
     font-weight: bolder;
     color: #FFFFFF;
-}
-
-small {
-    font-weight: bold;
-    font-style: italic;
 }
 
 a {
@@ -28,12 +28,7 @@ a {
     text-decoration: none;
 }
 
-a:visited {
-    color: white;
-}
-
 a:hover {
-    font-weight: bolder;
     color: white;
 }
 
@@ -45,8 +40,6 @@ a:hover {
 .wrapper {
     width: 100%;
     margin: 0 auto;
-    font-size: 1.5vw;
-    color: #0C5215;
 }
 
 #left-panel {
@@ -56,38 +49,73 @@ a:hover {
     display: block;
 }
 
+/* the resources panel */
 #right-panel {
-    margin: 3vh 0;
     float: right;
-    width: 25%;
     font-size: 1.4vw;
     background: rgba(0,0,0,0.1);
+
+    -moz-box-shadow: 1px 3px 10px 1px grey;
+    -webkit-box-shadow: 1px 3px 10px 1px grey;
+    box-shadow: 1px 3px 10px 2px grey;
 
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
 
-    height: 100%;
+    width: 30vw;
+    height: 45vh;
 
-    -moz-box-shadow: 1px 3px 10px 1px grey;
-    -webkit-box-shadow: 1px 3px 10px 1px grey;
-    box-shadow: 1px 3px 10px 1px grey;
+    position: absolute;
 
+    right:-30vw;
+    padding-left: 5vw;
+
+}
+
+#toggleDiv {
+    width: 15%;
+    height: 45vh;
+
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+
+    position: absolute;
+    display: inline-block;
+    top: 0; left: 0;
+}
+
+/* help from http://stackoverflow.com/questions/15138723/vertically-center-rotated-text-with-css */
+.inner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}
+
+.rotate {
+    -moz-transform: translateX(-50%) translateY(-50%) rotate(-90deg);
+    -webkit-transform: translateX(-50%) translateY(-50%) rotate(-90deg);
+    transform:  translateX(-50%) translateY(-50%) rotate(-90deg);
+}
+
+#right-content {
+    margin-left: 15%;
+    height: 30vh;
 }
 
 #right-panel:hover {
     background: rgba(0,0,0,0.08);
 }
 
-.right-content {
-    text-align: center;
-    padding: 2vh 2vw;
+ul {
+    margin: 2vh 0;
+    padding: 1vh 0;
 }
 
 li {
-    margin: 5% 0;
+    margin: 1vh 1vw;
+    padding: 0.3vh 0;
     list-style: square;
 }
-
 
 
 /*
